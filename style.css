@@ -1,0 +1,28 @@
+* {
+    background-color: rgb(59, 69, 97);
+}
+
+img {
+    /* place img dead center of window */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* make img circular */
+    border-radius: 100%;
+    /* make img responsive */
+    width: 100%;
+    height: auto;
+}
+
+#outer {
+    width: 100%;
+}
+
+#inner {
+    width: 81%;
+}
+
+#center {
+    width: 55%;
+}

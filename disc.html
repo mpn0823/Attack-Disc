@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+
+    <img id="outer" src="./pngs/outer_.png">
+    <img id="inner" src="./pngs/inner_.png">
+    <img id="center" src="./pngs/center_.png">
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/Draggable.min.js"></script>
+<script>
+    //make imgs rotate
+    Draggable.create("#outer", {
+        type: "rotation"
+    });
+    Draggable.create("#inner", {
+        type: "rotation"
+    });
+    Draggable.create("#center", {
+        type: "rotation"
+    });
+
+    //preserve responsive image for all window ratios
+    preserveResponsive();
+    window.addEventListener("resize", () => {
+        preserveResponsive();
+    });
+
+    //updates responsive image css values for current screen ratio
+    function preserveResponsive() {
+        if (window.innerHeight > window.innerWidth) {
+            document.getElementById("outer").setAttribute("style", "width: 100%; height: auto;");
+            document.getElementById("inner").setAttribute("style", "width: 81%; height: auto;");
+            document.getElementById("center").setAttribute("style", "width: 55%; height: auto");
+        } else {
+            document.getElementById("outer").setAttribute("style", "width: auto; height: 100%;");
+            document.getElementById("inner").setAttribute("style", "width: auto; height: 81%;");
+            document.getElementById("center").setAttribute("style", "width: auto; height: 55%");
+        }
+    }
+</script>
+
+</html>
